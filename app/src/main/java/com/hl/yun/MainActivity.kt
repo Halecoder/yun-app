@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
         button1.setOnClickListener{
-            val intent = Intent(this, secondActivity::class.java)
+            val intent = Intent("com.example.activitytest.ACTION_START")
             startActivity(intent)
         }
     }

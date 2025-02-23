@@ -19,7 +19,12 @@
         </activity>
         <activity
             android:name="com.hl.yun.secondActivity"
-            android:exported="false" />
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_START" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
