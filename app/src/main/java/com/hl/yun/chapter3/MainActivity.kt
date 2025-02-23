@@ -1,4 +1,4 @@
-package com.hl.yun
+package com.hl.yun.chapter3
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.hl.yun.R
 import com.hl.yun.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
