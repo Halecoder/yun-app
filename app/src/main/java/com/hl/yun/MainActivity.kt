@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hl.yun.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
@@ -21,18 +20,18 @@ class MainActivity : AppCompatActivity() {
 //        }
 
 //        点击跳转第二个activity google推荐
-//        mainBinding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(mainBinding.root)
-//        mainBinding.button1.setOnClickListener{
-//            val intent = Intent(this, secondActivity::class.java)
-//            startActivity(intent)
-//        }
-//        隐式调用activity
-        button1.setOnClickListener {
-            val intent = Intent("com.example.activitytest.ACTION_START")
-            intent.addCategory("com.example.activitytest.MY_CATEGORY")
+        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
+        mainBinding.button1.setOnClickListener {
+            val intent = Intent(this, secondActivity::class.java)
             startActivity(intent)
         }
+//        隐式调用activity
+//        button1.setOnClickListener {
+//            val intent = Intent("com.example.activitytest.ACTION_START")
+//            intent.addCategory("com.example.activitytest.MY_CATEGORY")
+//            startActivity(intent)
+//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
