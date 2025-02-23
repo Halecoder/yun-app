@@ -1,12 +1,12 @@
 package com.hl.yun
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.hl.yun.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,21 +27,23 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, secondActivity::class.java)
 //            startActivity(intent)
 //        }
-        button1.setOnClickListener{
+//        隐式调用activity
+        button1.setOnClickListener {
             val intent = Intent("com.example.activitytest.ACTION_START")
+            intent.addCategory("com.example.activitytest.MY_CATEGORY")
             startActivity(intent)
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main,menu)
+        menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.add_item -> Toast.makeText(this,"add",Toast.LENGTH_SHORT).show()
-            R.id.remove_item-> Toast.makeText(this,"remove",Toast.LENGTH_SHORT).show()
+        when (item.itemId) {
+            R.id.add_item -> Toast.makeText(this, "add", Toast.LENGTH_SHORT).show()
+            R.id.remove_item -> Toast.makeText(this, "remove", Toast.LENGTH_SHORT).show()
         }
         return true
     }
