@@ -81,6 +81,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DialogActivity::class.java)
             startActivity(intent)
         }
+
+        //回收后获取保存的数据
+        if (savedInstanceState != null) {
+            val tempData = savedInstanceState.getString("data_key")
+            Log.d(tag, "tempData is $tempData")
+        }
     }
 
     override fun onStart() {
@@ -111,6 +117,14 @@ class MainActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         Log.d(tag, "onRestart")
+    }
+
+
+    // activity被回收时触发
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val tempData = "Something you just typed"
+        outState.putString("data_key", tempData)
     }
 
 
