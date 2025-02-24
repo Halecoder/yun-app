@@ -15,55 +15,104 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
 
 
+    //override fun onCreate(savedInstanceState: Bundle?) {
+    //    super.onCreate(savedInstanceState)
+    //    setContentView(R.layout.activity_main)
+    //    Log.d("data", "onCreate execute")
+    //
+    //    // 新版本启用数据返回方式 返回时的回调函数：second activity 返回时，给first activity传递数据 观察者
+    //    //        private val launcher =
+    //    //            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    //    //                if (it.resultCode == RESULT_OK)
+    //    //                    Log.d(
+    //    //                        "FirstActivity",
+    //    //                        "returned data is ${it.data?.getStringExtra("return_data")}"
+    //    //                    )
+    //    //                else Log.d("FirstActivity", "there isn't returned data")
+    //    //            }
+    //    //
+    //    //        launcher.launch(Intent(this, secondActivity::class.java)) 观察者启动第二个activity活动界面
+    //
+    //
+    //    //        button1.setOnClickListener {
+    //    //            Toast.makeText(this, "button1", Toast.LENGTH_LONG).show()
+    //    //        }
+    //
+    //    //       显式调用点击跳转第二个activity google推荐
+    //    //        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+    //    //        setContentView(mainBinding.root)
+    //    //        mainBinding.button1.setOnClickListener {
+    //    //            val intent = Intent(this, secondActivity::class.java)
+    //    //            startActivity(intent)
+    //    //        }
+    //
+    //
+    //    //        隐式调用activity
+    //    //        button1.setOnClickListener {
+    //    //            val intent = Intent("com.example.activitytest.ACTION_START")
+    //    //            intent.addCategory("com.example.activitytest.MY_CATEGORY")
+    //    //            startActivity(intent)
+    //    //        }
+    //
+    //    // 数据传输到第二个activity
+    //    //button1.setOnClickListener {
+    //    //    val intent = Intent(this, secondActivity::class.java)
+    //    //    intent.putExtra("data_1", "Hello, secondActivity")
+    //    //    //startActivity(intent)
+    //    //    startActivityForResult(intent, 1) // 启动activity并返回数据(旧版本)
+    //    //}
+    //
+    //
+    //
+    //}
+
+    // 生存期测试
+    private val tag = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(tag, "onCreate")
         setContentView(R.layout.activity_main)
-        Log.d("data", "onCreate execute")
 
-        // 新版本启用数据返回方式 返回时的回调函数：second activity 返回时，给first activity传递数据 观察者
-        //        private val launcher =
-        //            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        //                if (it.resultCode == RESULT_OK)
-        //                    Log.d(
-        //                        "FirstActivity",
-        //                        "returned data is ${it.data?.getStringExtra("return_data")}"
-        //                    )
-        //                else Log.d("FirstActivity", "there isn't returned data")
-        //            }
-        //
-        //        launcher.launch(Intent(this, secondActivity::class.java)) 观察者启动第二个activity活动界面
-
-
-        //        button1.setOnClickListener {
-        //            Toast.makeText(this, "button1", Toast.LENGTH_LONG).show()
-        //        }
-
-        //       显式调用点击跳转第二个activity google推荐
-        //        mainBinding = ActivityMainBinding.inflate(layoutInflater)
-        //        setContentView(mainBinding.root)
-        //        mainBinding.button1.setOnClickListener {
-        //            val intent = Intent(this, secondActivity::class.java)
-        //            startActivity(intent)
-        //        }
-
-
-        //        隐式调用activity
-        //        button1.setOnClickListener {
-        //            val intent = Intent("com.example.activitytest.ACTION_START")
-        //            intent.addCategory("com.example.activitytest.MY_CATEGORY")
-        //            startActivity(intent)
-        //        }
-
-        // 数据传输到第二个activity
-        button1.setOnClickListener {
-            val intent = Intent(this, secondActivity::class.java)
-            intent.putExtra("data_1", "Hello, secondActivity")
-            //startActivity(intent)
-            startActivityForResult(intent, 1) // 启动activity并返回数据(旧版本)
+        startNormalActivity.setOnClickListener {
+            val intent = Intent(this, NormalActivity::class.java)
+            startActivity(intent)
         }
-
-
+        startDialogActivity.setOnClickListener {
+            val intent = Intent(this, DialogActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(tag, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(tag, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(tag, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(tag, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(tag, "onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(tag, "onRestart")
+    }
+
 
     //旧版本获取secondActivity返回数据
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

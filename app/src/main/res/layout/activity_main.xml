@@ -10,11 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--        <Button-->
+        <!--            android:id="@+id/button1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Button 1" />-->
+
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/startNormalActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button 1" />
+            android:text="Start NormalActivity" />
+
+        <Button
+            android:id="@+id/startDialogActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start DialogActivity" />
 
     </LinearLayout>
 
