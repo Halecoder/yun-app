@@ -36,6 +36,8 @@ android {
     }
 
     //在layout文件夹下建立子文件夹
+    // 重点：在layout文件夹下建立子文件夹后，需要再添加layout文件夹,然后点击file->Sync Project With Gradle Files，才会生效
+    // 此时会看到子文件上有一个黄色三横线标识
     def listSubFile = {
         def layoutFolder = 'src/main/res/layout'
         def files = file(layoutFolder).listFiles()
