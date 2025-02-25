@@ -13,6 +13,8 @@ class RecyclerViewActivity : AppCompatActivity() {
         setContentView(R.layout.recycler_view)
         initFruits() // 初始化水果数据
         val layoutManager = LinearLayoutManager(this)
+        //实现横向列表
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recyclerView.layoutManager = layoutManager
         val adapter = FruitAdapterByRecycle(fruitList)
         recyclerView.adapter = adapter
