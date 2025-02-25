@@ -8,5 +8,7 @@ class NormalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_normal)
+        //隐藏系统栏
+        supportActionBar?.hide()
     }
 }
