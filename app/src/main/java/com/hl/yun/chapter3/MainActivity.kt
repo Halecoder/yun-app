@@ -72,6 +72,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d(tag, "onCreate")
         setContentView(R.layout.activity_main)
+        //隐藏系统栏
+        supportActionBar?.hide()
 
         startNormalActivity.setOnClickListener {
             val intent = Intent(this, NormalActivity::class.java)
