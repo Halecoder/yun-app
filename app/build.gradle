@@ -35,6 +35,24 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    //在layout文件夹下建立子文件夹
+    def listSubFile = {
+        def layoutFolder = 'src/main/res/layout'
+        def files = file(layoutFolder).listFiles()
+        def folders = []
+        files.each {
+            item -> folders.add(item.path)
+        }
+        folders.add(file(layoutFolder).parentFile.path)
+        return folders
+    }
+    sourceSets {
+        main {
+            res.srcDirs = listSubFile()
+        }
+    }
+
+
 }
 
 dependencies {
