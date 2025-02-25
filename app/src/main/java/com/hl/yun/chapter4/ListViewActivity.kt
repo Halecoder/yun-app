@@ -1,9 +1,11 @@
 package com.hl.yun.chapter4
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hl.yun.R
 import com.hl.yun.databinding.ListViewBinding
+import kotlinx.android.synthetic.main.list_view.*
 
 class ListViewActivity : AppCompatActivity() {
     //private val data = listOf(
@@ -52,6 +54,11 @@ class ListViewActivity : AppCompatActivity() {
         setContentView(binding.root)
         initFruits()
         binding.listView.adapter = FruitAdapter(this, R.layout.fruit_item, fruitList)
+        // 点击效果
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val fruit = fruitList[position]
+            Toast.makeText(this, "you clicked item ${fruit.name}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initFruits() {

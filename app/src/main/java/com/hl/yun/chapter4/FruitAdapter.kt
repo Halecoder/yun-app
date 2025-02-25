@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.hl.yun.R
+import kotlinx.android.synthetic.main.fruit_item.view.*
 
 /**
  * @author hl
@@ -22,14 +22,66 @@ import com.hl.yun.R
  */
 class FruitAdapter(activity: Activity, val resourceId: Int, data: List<Fruit>) :
     ArrayAdapter<Fruit>(activity, resourceId, data) {
+    //override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+    //    //val fruit = getItem(position) // 获取当前项的Fruit实例
+    //    //val view = LayoutInflater.from(context).inflate(resourceId, parent, false)
+    //    //val fruitImage = view.findViewById<ImageView>(R.id.fruitImage)
+    //    //val fruitName = view.findViewById<TextView>(R.id.fruitName)
+    //    //if (fruit != null) {
+    //    //    fruitImage.setImageResource(fruit.imageId)
+    //    //    fruitName.text = fruit.name
+    //    //}
+    //    //return view
+    //
+    //    // 优化1：缓存复用
+    //    val fruit = getItem(position) // 获取当前项的Fruit实例
+    //    val view: View
+    //    if (convertView == null) {    // 无需重新加载布局，直接使用convertView 进行缓存复用
+    //        view = LayoutInflater.from(context).inflate(resourceId, parent, false)
+    //    } else {
+    //        view = convertView
+    //    }
+    //    val fruitImage = view.fruitImage
+    //    val fruitName = view.fruitName
+    //    if (fruit != null) {
+    //        fruitImage.setImageResource(fruit.imageId)
+    //        fruitName.text = fruit.name
+    //    }
+    //    return view
+    //}
+
+    // 优化2：使用ViewHolder
+    /**
+     * 我们新增了一个内部类ViewHolder， 用于对ImageView和TextView的控件实例进行缓存，
+    Kotlin中使用inner class关键字来定义内部类。当convertView为 null的时候， 创建一个
+    ViewHolder对象， 并将控件的实例存放在ViewHolder里， 然后调用
+    View的setTag()方法， 将ViewHolder对象存储在View中。当convertView不为null的时候， 则调用View的
+    getTag()方法， 把ViewHolder重新取出。这样所有控件的实例都缓存在了ViewHolder里，
+    就没有必要每次都通过findViewById()方法来获取控件实例了。
+     */
+
+    inner class ViewHolder(
+        var fruitImage: ImageView,
+        var fruitName: TextView
+    )
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val fruit = getItem(position) // 获取当前项的Fruit实例
-        val view = LayoutInflater.from(context).inflate(resourceId, parent, false)
-        val fruitImage = view.findViewById<ImageView>(R.id.fruitImage)
-        val fruitName = view.findViewById<TextView>(R.id.fruitName)
+        val fruit = getItem(position)
+        val view: View
+        val viewHolder: ViewHolder
+        if (convertView == null) {
+            view = LayoutInflater.from(context).inflate(resourceId, parent, false)
+            val fruitImage: ImageView = view.fruitImage
+            val fruitName: TextView = view.fruitName
+            viewHolder = ViewHolder(fruitImage, fruitName)
+            view.tag = viewHolder
+        } else {
+            view = convertView
+            viewHolder = view.tag as ViewHolder
+        }
         if (fruit != null) {
-            fruitImage.setImageResource(fruit.imageId)
-            fruitName.text = fruit.name
+            viewHolder.fruitImage.setImageResource(fruit.imageId)
+            viewHolder.fruitName.text = fruit.name
         }
         return view
     }
