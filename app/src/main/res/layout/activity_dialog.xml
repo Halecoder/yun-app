@@ -12,7 +12,9 @@
         android:theme="@style/Theme.AppCompat.Dialog"
         tools:ignore="MissingConstraints">
 
-        <include layout="@layout/title" /> <!-- 引入title布局-->
+        <com.hl.yun.chapter4.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="match_parent"
