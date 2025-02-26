@@ -33,6 +33,7 @@ class FragmentActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.rightLayout, fragment)
+        transaction.addToBackStack(null) //加上这个让出现了动态画面然后返回是回到点击之前， 而不是直接退出
         transaction.commit()
     }
 
