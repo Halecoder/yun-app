@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.hl.yun.R
 import kotlinx.android.synthetic.main.left_fragment.*
+import kotlinx.android.synthetic.main.two_fragment.*
 
 class FragmentActivity : AppCompatActivity() {
+    val activity: AppCompatActivity? = null
 
     /**
      * 首先我们给左侧Fragment中的按钮注册了一个点击事件，然后调用
@@ -26,6 +28,15 @@ class FragmentActivity : AppCompatActivity() {
             replaceFragment(AnotherRightFragment())
         }
         replaceFragment(RightFragment())
+
+        //Acyivity里调用Fragment leftFrag和rightLayout都是XML 中的Fragment id
+        val fragment = leftFrag as Fragment
+        // Fragment里调用Activity 互相通信
+        if (activity != null) {
+            val mainActivity = activity as FragmentActivity
+        }
+
+
     }
 
 
