@@ -21,7 +21,10 @@ class BroadcastActivity : AppCompatActivity() {
         // 点击按钮发送一个广播
         mybroad.setOnClickListener {
             val intent = Intent("com.hl.yun.chapter6.ACTION_MY_BROADCAST")
-            sendBroadcast(intent)
+            //sendBroadcast(intent)
+            // 发送有序广播
+            intent.setPackage(packageName)
+            sendOrderedBroadcast(intent, null)
         }
     }
 
