@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
 
     <Button
-        android:id="@+id/startNormalActivity"
+        android:id="@+id/mybroad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start NormalActivity" />
+        android:text="send BroadCast" />
 </LinearLayout>

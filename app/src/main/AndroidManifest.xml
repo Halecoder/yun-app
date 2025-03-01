@@ -17,7 +17,9 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+                <!--自定义广播-->
+                <action android:name="com.hl.yun.chapter6.ACTION_MY_BROADCAST" />
             </intent-filter>
         </receiver>
 
