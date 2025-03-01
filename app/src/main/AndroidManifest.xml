@@ -16,7 +16,7 @@
             android:name=".chapter6.OtherReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:priority="100">
                 <action android:name="com.hl.yun.chapter6.ACTION_MY_BROADCAST" />
             </intent-filter>
         </receiver>

@@ -11,6 +11,8 @@ class OtherReceiver : BroadcastReceiver() {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         if (intent.action == "com.hl.yun.chapter6.ACTION_MY_BROADCAST") {
             Toast.makeText(context, "接收到广播从OtherReceiver", Toast.LENGTH_SHORT).show()
+            // 定义了other比my的高，就可以从此处截断
+            abortBroadcast()
         }
     }
 }
