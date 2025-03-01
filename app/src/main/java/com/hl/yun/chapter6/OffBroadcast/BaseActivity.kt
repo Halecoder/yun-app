@@ -1,3 +1,5 @@
+package com.hl.yun.chapter6.OffBroadcast
+
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -5,8 +7,6 @@ import android.content.IntentFilter
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.hl.yun.chapter6.OffBroadcast.ActivityCollector
-import com.hl.yun.chapter6.OffBroadcast.LoginActivity
 
 open class BaseActivity : AppCompatActivity() {
 
