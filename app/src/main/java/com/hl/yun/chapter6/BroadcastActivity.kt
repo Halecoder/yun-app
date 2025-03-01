@@ -3,7 +3,6 @@ package com.hl.yun.chapter6
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +15,7 @@ class BroadcastActivity : AppCompatActivity() {
         setContentView(R.layout.broadcast)
         //动态注册广播
         timeChangeReceiver = TimeChangeReceiver()
-        registerReceiver(timeChangeReceiver, IntentFilter("android.intent.action.TIME_TICK"))
+        //registerReceiver(timeChangeReceiver, IntentFilter("android.intent.action.TIME_TICK"))
     }
 
     override fun onDestroy() {
