@@ -12,6 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".chapter6.OffBroadcast.MainActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".chapter6.OffBroadcast.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".chapter6.OffBroadcast.BaseActivity"
+            android:exported="true" />
+
         <receiver
             android:name=".chapter6.OtherReceiver"
             android:enabled="true"
@@ -19,8 +35,7 @@
             <intent-filter android:priority="100">
                 <action android:name="com.hl.yun.chapter6.ACTION_MY_BROADCAST" />
             </intent-filter>
-        </receiver>
-        <!-- Android系统启动完成后会发出一条值为android.intent.action.BOOT_COMPLETED 的广播 -->
+        </receiver> <!-- Android系统启动完成后会发出一条值为android.intent.action.BOOT_COMPLETED 的广播 -->
         <receiver
             android:name=".chapter6.MyReceiver"
             android:enabled="true"
@@ -35,13 +50,7 @@
 
         <activity
             android:name=".chapter6.BroadcastActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".chapter5.FragmentActivity"
             android:exported="true" />
