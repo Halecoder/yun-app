@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".chapter10.ThreadActivity"
+            android:name=".chapter10.ServiceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".chapter10.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".chapter10.ThreadActivity"
+            android:exported="true"></activity>
 
         <provider
             android:name=".chapter8.MyProvider"
@@ -34,7 +43,7 @@
 
         <activity
             android:name=".chapter8.ContentProviderActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".chapter8.ContentResolverActivity"
             android:exported="true" />
