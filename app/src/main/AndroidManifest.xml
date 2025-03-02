@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".chapter7.SharedPreferencesActivity"
+            android:name=".chapter7.SqliteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".chapter7.FilePresistenceActivity"
+            android:name=".chapter7.SharedPreferencesActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".chapter7.FilePresistenceActivity"
+            android:exported="true" />
         <activity
             android:name=".chapter6.OffBroadcast.MainActivity"
             android:exported="false" />
