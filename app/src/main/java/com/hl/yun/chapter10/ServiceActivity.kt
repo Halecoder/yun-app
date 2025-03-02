@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.hl.yun.R
 import kotlinx.android.synthetic.main.activity_service.*
@@ -52,6 +53,12 @@ class ServiceActivity : AppCompatActivity() {
         }
         unbindServiceBtn.setOnClickListener {
             unbindService(connection) // 解绑Service
+        }
+        startIntentServiceBtn.setOnClickListener {
+            // 打印主线程的id
+            Log.d("MainActivity", "Thread id is${Thread.currentThread().name}")
+            val intent = Intent(this, MyIntentService::class.java)
+            startService(intent)
         }
     }
 }

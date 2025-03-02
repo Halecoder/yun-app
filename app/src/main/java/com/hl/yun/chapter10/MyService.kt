@@ -69,6 +69,10 @@ class MyService : Service() {
     //启动Service时候调用
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d(tag, "onStartCommanding") //这个必须在上面
+        Thread {
+            // 停止服务
+            stopSelf()
+        }
         return super.onStartCommand(intent, flags, startId)
     }
 
