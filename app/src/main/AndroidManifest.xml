@@ -13,9 +13,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:exported="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name=".chapter8.MyProvider"
+            android:authorities="com.hl.yun.chapter8.MyProvider"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="Instantiatable"></provider>
+
         <activity
-            android:name=".chapter8.ContentResolverActivity"
+            android:name=".chapter8.ContentProviderActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +32,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".chapter8.CallActivity"
+            android:name=".chapter8.ContentResolverActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".chapter8.CallActivity"
+            android:exported="true" />
         <activity
             android:name=".chapter7.SqliteActivity"
             android:exported="true" />
