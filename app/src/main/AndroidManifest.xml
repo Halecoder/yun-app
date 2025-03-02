@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".chapter8.CallActivity"
+            android:name=".chapter8.ContentResolverActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".chapter7.SqliteActivity"
+            android:name=".chapter8.CallActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".chapter7.SqliteActivity"
+            android:exported="true" />
         <activity
             android:name=".chapter7.SharedPreferencesActivity"
             android:exported="true" />
