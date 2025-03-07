@@ -16,15 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service
-            android:name=".chapter10.MyIntentService"
-            android:exported="false"></service>
-
         <activity
-            android:name=".chapter10.FrontServiceActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".chapter10.ServiceActivity"
+            android:name=".chapter13.CountActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +25,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".chapter10.MyIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".chapter10.FrontServiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".chapter10.ServiceActivity"
+            android:exported="true"></activity>
 
         <service
             android:name=".chapter10.MyService"
