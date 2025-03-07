@@ -20,4 +20,11 @@
         android:layout_gravity="center_horizontal"
         android:text="加一" />
 
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="清零" />
+
 </LinearLayout>

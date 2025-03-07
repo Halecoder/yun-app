@@ -1,7 +1,10 @@
 package com.hl.yun.chapter13
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import com.hl.yun.R
 import kotlinx.android.synthetic.main.activity_count.*
@@ -11,15 +14,29 @@ import kotlinx.android.synthetic.main.activity_count.*
  */
 class CountActivity : AppCompatActivity() {
     lateinit var viewModel: CountViewModel
+    lateinit var sp: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count)
-        viewModel = ViewModelProvider(this).get(CountViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(CountViewModel::class.java)
+        sp = getPreferences(Context.MODE_PRIVATE)
+        val countReserved = sp.getInt("count_reserved", 0)
+        viewModel = ViewModelProvider(this, CountViewModelFactory(countReserved))
+            .get(CountViewModel::class.java)
         plusOneBtn.setOnClickListener {
             viewModel.counter++
             refreshCounter()
         }
+        clearBtn.setOnClickListener {
+            viewModel.counter = 0
+            refreshCounter()
+        }
         refreshCounter()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sp.edit { putInt("count_reserved", viewModel.counter) }
     }
 
     //发现的问题：Activity要负责处理逻辑，控制UI，处理网络请求……任务太重
@@ -28,4 +45,6 @@ class CountActivity : AppCompatActivity() {
     private fun refreshCounter() {
         infoText.text = viewModel.counter.toString()
     }
+
+
 }
